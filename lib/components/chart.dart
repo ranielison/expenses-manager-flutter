@@ -43,14 +43,21 @@ class Chart extends StatelessWidget {
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(10),
-      child: Row(
-        children: groupedTransactions.map((tr) {
-          return ChatBar(
-            label: tr['day'],
-            value: tr['value'],
-            percentage: (tr['value'] as double) / _weekTotalValue,
-          ); //Text('${tr['day']}:  ${tr['value']}');
-        }).toList(),
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransactions.map((tr) {
+            return Flexible(
+              fit: FlexFit.tight,
+              child: ChatBar(
+                label: tr['day'],
+                value: tr['value'],
+                percentage: (tr['value'] as double) / _weekTotalValue,
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
