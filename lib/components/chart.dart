@@ -42,7 +42,7 @@ class Chart extends StatelessWidget {
           return ChatBar(
             label: tr['day'],
             value: tr['value'],
-            percentage: 0,
+            percentage: 0.5,
           ); //Text('${tr['day']}:  ${tr['value']}');
         }).toList(),
       ),
