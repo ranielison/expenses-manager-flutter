@@ -44,35 +44,44 @@ class TransactionList extends StatelessWidget {
                   horizontal: 5,
                 ),
                 child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 30,
-                    child: Padding(
-                      padding: EdgeInsets.all(6.0),
-                      child: FittedBox(
-                        child: Text(
-                          'R\$ ${tr.value}',
+                    leading: CircleAvatar(
+                      radius: 30,
+                      child: Padding(
+                        padding: EdgeInsets.all(6.0),
+                        child: FittedBox(
+                          child: Text(
+                            'R\$ ${tr.value}',
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  title: Text(
-                    tr.title,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                    title: Text(
+                      tr.title,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  subtitle: Text(
-                    DateFormat('d MMM y').format(tr.date),
-                  ),
-                  trailing: IconButton(
-                    icon: Icon(
-                      Icons.delete,
-                      color: Theme.of(context).errorColor,
+                    subtitle: Text(
+                      DateFormat('d MMM y').format(tr.date),
                     ),
-                    onPressed: () => onRemove(tr.id),
-                  ),
-                ),
+                    trailing: MediaQuery.of(context).size.width > 400
+                        ? FlatButton.icon(
+                            onPressed: () => onRemove(tr.id),
+                            icon: Icon(
+                              Icons.delete,
+                              color: Theme.of(context).errorColor,
+                            ),
+                            label: Text('Excluir'),
+                            textColor: Theme.of(context).errorColor,
+                          )
+                        : IconButton(
+                            icon: Icon(
+                              Icons.delete,
+                              color: Theme.of(context).errorColor,
+                            ),
+                            onPressed: () => onRemove(tr.id),
+                          )),
               );
             },
           );
