@@ -1,3 +1,4 @@
+import 'package:despesas/components/adaptative_button.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -92,14 +93,10 @@ class _TransactionFormState extends State<TransactionForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  RaisedButton(
-                    color: Theme.of(context).primaryColor,
-                    textColor: Colors.white,
-                    child: Text(
-                      'Nova transação',
-                    ),
+                  AdaptativeButton(
+                    label: 'Nova transação',
                     onPressed: _submitForm,
-                  ),
+                  )
                 ],
               )
             ],
